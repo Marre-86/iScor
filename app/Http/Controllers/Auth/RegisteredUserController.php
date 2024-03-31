@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Notifications\NewUserRegistered;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -42,6 +45,11 @@ class RegisteredUserController extends Controller
         ]);
 
         event(new Registered($user));
+
+        Log::info('Зарегистрирован новый юзер - ' . $request->name);
+
+        Notification::route('telegram', env('TELEGRAM_CHAT_ID'))
+            ->notify(new NewUserRegistered($request->name));
 
         Auth::login($user);
 

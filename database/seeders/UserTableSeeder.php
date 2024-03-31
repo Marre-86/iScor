@@ -19,7 +19,7 @@ class UserTableSeeder extends Seeder
         User::create([
             'name' => 'Robb Jones',
             'email' => 'a@a',
-            'password' => Hash::make(env('ADMIN_PASSWORD')),
+            'password' => Hash::make(env('ADMIN_DB_PASSWORD')),
         ]);
 
         $user = User::where('name', 'Robb Jones')->first();
