@@ -14,16 +14,19 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div>
-
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-                {{ $slot }}
+    <body>
+        <div class="min-h-screen flex flex-col bg-gray-100">
+            <header class="header py-5">
+                <div class="container-iscor flex items-center justify-between">
+                    <img src="img/logo.svg">
+                    <div class="text-[24px] fs-14-768 font-semibold">Автоматизированная система скоринга</div>
+                </div>
+            </header>
+            <div class="my-auto py-10 m-0-768">
+                <button class="btn-back ml-5 my-5 hidden block-768" onclick="location='javascript:history.back()'">Назад</button>
+                <div class="card-auth">
+                    {{ $slot }}
+                </div>
             </div>
         </div>
     </body>
