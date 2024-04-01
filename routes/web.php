@@ -23,6 +23,9 @@ Route::get('/articles', function () {
 Route::get('/cases', function () {
     return view('cases');
 })->middleware(['auth', 'verified'])->name('cases');
+Route::get('/case', function () {
+    return view('case');
+})->middleware(['auth', 'verified'])->name('case');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
