@@ -23,14 +23,14 @@
             <x-text-input id="phone-number" class="input" type="number" name="phone-number" :value="old('phone-number')" required autocomplete="phone-number" placeholder="Номер телефона" />
             <x-input-error :messages="$errors->get('phone-number')" class="mt-2" />
         </div>
-        {{-- <div class="mt-5">
+         <div class="mt-5">
             <x-text-input id="password" class="input" type="password" name="password" required autocomplete="new-password" placeholder="Пароль" />
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
         <div class="mt-5">
             <x-text-input id="password_confirmation" class="input" type="password" name="password_confirmation" required autocomplete="new-password" placeholder="Подтвердите пароль" />
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div> --}}
+        </div>
         <div class="flex mt-10">
             <input class="hidden checkbox" id="checkbox" type="checkbox">
             <label class="flex cursor-pointer" for="checkbox">
