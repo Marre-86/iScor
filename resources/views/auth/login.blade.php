@@ -22,7 +22,7 @@
             </div>
             <a class="text-[14px] a-grey mt-3 hover:underline" href="{{ route('password.request') }}">Забыли пароль?</a>
         </div>
-        <button class="btn-grey w-full mt-10">Войти</button>
+        <button class="btn-gray w-full mt-10">Войти</button>
         <a class="a-green text-center block mt-5 hover:underline" href="{{ route('register') }}">Еще не зарегистрировались?</a>
     </form>
 </x-guest-layout>

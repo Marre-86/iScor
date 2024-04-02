@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="container-iscor">
         <div class="fs-24-768 text-[64px] font-medium text-center mx-auto mt-5">IScor.ru: Автоматизированная система скоринга кредитной истории</div>
-        <button class="btn-transparent w-96 block mx-auto mt-5">Получить полный доступ</button>
+        <button class="btn-transparent w-96 w-full-768 block mx-auto mt-5">Получить полный доступ</button>
         <img class="mx-auto mt-10" src="img/home-img.png" alt="home-img">
         <div class="text-[32px] fs-20-768 font-medium mt-10">Услуги <span class="text-green">IScor.ru</span></div>
         <div class="flex flex-wrap flex-nowrap-768 justify-between justify-normal-768 overflow-x-auto-768 no-scrollbar mt-3">
@@ -109,7 +109,7 @@
                     <div class="fs-14-768 mt-3">Оплатите счета с помощью расчетного счета или же банковской картой</div>
                 </div>
             </div>
-            <button class="btn-transparent w-80 mt-5 hidden block-768 mb-10">Получить полный доступ</button>
+            <button class="btn-transparent w-80 w-full-768 mt-5 hidden block-768 mb-10">Получить полный доступ</button>
             <div class="flex items-center justify-between mt-20">
                 <div class="text-[32px] fs-18-768 font-medium font-semibold-768">Кейсы</div>
                 <button class="btn-arrow-green" onclick="location='{{ route('cases') }}'">Все кейсы</button>

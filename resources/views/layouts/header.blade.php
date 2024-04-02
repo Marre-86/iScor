@@ -1,9 +1,9 @@
-<div class="bg-white">
+<div x-data="{ open: false }" class="bg-white">
     <div class="container-iscor">
         <div class="flex items-center justify-between py-5">
             <div class="flex items-center">
                 <img class="logo cursor-pointer" src="img/logo.svg" onclick="location='{{ route('home') }}'">
-                <nav class="text-[14px] font-medium ml-20 hidden-768">
+                <nav class="text-[14px] font-medium ml-20 hidden-1024">
                     <a class="{{ request()->routeIs('home') ? 'text-green' : 'text-gray' }} mr-5 hover:text-green-600" href="{{ route('home') }}">Главная</a>
                     <a class="{{ request()->routeIs('services') ? 'text-green' : 'text-gray' }} mr-5 hover:text-green-600" href="{{ route('services') }}">Услуги</a>
                     <a class="{{ request()->routeIs('rates') ? 'text-green' : 'text-gray' }} mr-5 hover:text-green-600" href="{{ route('rates') }}">Тарифы</a>
@@ -11,14 +11,42 @@
                     <a class="{{ request()->routeIs('cases') ? 'text-green' : 'text-gray' }} hover:text-green-600" href="{{ route('cases') }}">Кейсы</a>
                 </nav>
             </div>
-            {{-- <div class="flex items-center">
+            <div class="flex items-center hidden-1024">
                 <div class="text-right mr-5">
                     <div class="text-[20px] font-semibold">+7(423) 124 311 213</div>
-                    <a class="text-[14px] font-semibold a-green" href="">Заказать звонок</a>
+                    <a class="text-[14px] font-semibold a-green" href="#" onclick="openModal()">Заказать звонок</a>
                 </div>
-                <button class="btn-green-sm">Войти</button>
-            </div> --}}
-            <div class="hidden-768">
+                <button class="btn-green w-52">Войти</button>
+            </div>
+            <div class="modal-bg" onclick="closeModal()">
+                <div class="modal" onclick="event.stopPropagation();">
+                    <div class="flex items-center justify-between hidden-1024">
+                        <div class="text-[24px] fs-16-768 font-semibold text-green">Заказать звонок</div>
+                        <img class="cursor-pointer" src="img/close-modal.svg" onclick="closeModal()">
+                    </div>
+                    <img class="ml-auto hidden block-1024" src="img/close-modal-green.svg" onclick="closeModal()">
+                    <div class="fs-14-768 mt-5">Клиентский отдел IScor.ru всегда готов помочь и ответить на любой вопрос</div>
+                    <div class="mt-5">
+                        <x-text-input id="name" class="input" type="name" name="name" required autocomplete="name" placeholder="Имя" />
+                        <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                    </div>
+                    <div class="mt-5">
+                        <x-text-input id="number" class="input" type="number" name="number" required autocomplete="number" placeholder="+7 (___)___-___-___" />
+                        <x-input-error :messages="$errors->get('number')" class="mt-2" />
+                    </div>
+                    <div class="mt-5">
+                        <x-text-input id="email" class="input" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="Почта" />
+                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                    </div>
+                    <button class="btn-green w-full mt-10">Заказать звонок</button>
+                </div>
+            </div>
+            <script>
+                const modal = document.querySelector(".modal-bg");
+                const openModal = () => modal.style.display = "block";
+                const closeModal = () => modal.style.display = "none";
+            </script>
+            {{-- <div class="hidden-768">
                 <x-dropdown>
                     <x-slot name="trigger">
                         <button class="text-[14px] flex items-center font-medium text-gray hover:text-gray-700">
@@ -36,8 +64,8 @@
                         </form>
                     </x-slot>
                 </x-dropdown>
-            </div>
-            <div class="hidden block-768">
+            </div> --}}
+            <div class="hidden block-1024">
                 <button @click="open = ! open" class="py-2">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -47,24 +75,16 @@
             </div>
         </div>
     </div>
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden">
-        <div class="text-[14px]">
-            <a class="{{ request()->routeIs('home') ? 'text-green' : 'text-gray' }} block border p-5" href="{{ route('home') }}">Главная</a>
-            <a class="{{ request()->routeIs('services') ? 'text-green' : 'text-gray' }} block border p-5" href="{{ route('services') }}">Услуги</a>
-            <a class="{{ request()->routeIs('rates') ? 'text-green' : 'text-gray' }} block border p-5" href="{{ route('rates') }}">Тарифы</a>
-            <a class="{{ request()->routeIs('articles') ? 'text-green' : 'text-gray' }} block border p-5" href="{{ route('articles') }}">Статьи</a>
-            <a class="{{ request()->routeIs('cases') ? 'text-green' : 'text-gray' }} block border p-5" href="{{ route('cases') }}">Кейсы</a>
-        </div>
-        <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="px-4">
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-            </div>
-            <x-responsive-nav-link class="mt-3" :href="route('profile.edit')">Профиль</x-responsive-nav-link>
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">Выйти</x-responsive-nav-link>
-            </form>
-        </div>
+    <div :class="{'block': open, 'hidden': ! open}" class="hidden pb-5">
+        <a class="{{ request()->routeIs('home') ? 'text-green' : 'text-gray' }} text-[14px] block border p-5" href="{{ route('home') }}">Главная</a>
+        <a class="{{ request()->routeIs('services') ? 'text-green' : 'text-gray' }} text-[14px] block border p-5" href="{{ route('services') }}">Услуги</a>
+        <a class="{{ request()->routeIs('rates') ? 'text-green' : 'text-gray' }} text-[14px] block border p-5" href="{{ route('rates') }}">Тарифы</a>
+        <a class="{{ request()->routeIs('articles') ? 'text-green' : 'text-gray' }} text-[14px] block border p-5" href="{{ route('articles') }}">Статьи</a>
+        <a class="{{ request()->routeIs('cases') ? 'text-green' : 'text-gray' }} text-[14px] block border p-5" href="{{ route('cases') }}">Кейсы</a>
+        <a class="{{ request()->routeIs('login') ? 'text-green' : 'text-gray' }} text-[14px] block border p-5" href="{{ route('login') }}">Войти</a>
+        {{-- <a class="{{ request()->routeIs('profile') ? 'text-green' : 'text-gray' }} text-[14px] block border p-5" href="{{ route('profile.edit') }}">Профиль</a>
+        <a class="{{ request()->routeIs('logout') ? 'text-green' : 'text-gray' }} text-[14px] block border p-5" href="{{ route('logout') }}">Выйти</a> --}}
+        <div class="text-[20px] font-semibold pt-5 pl-5">+7(423) 124 311 213</div>
+        <a class="a-green text-[14px] font-semibold pt-3 mb-5 pl-5" href="#" onclick="openModal()">Заказать звонок</a>
     </div>
 </div>

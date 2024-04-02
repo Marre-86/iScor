@@ -38,7 +38,7 @@
                 <span class="text-[14px] select-none">Нажимая на кнопку «Зарегистрироваться», вы даёте согласие на обработку <a class="a-green" href="">персональных данных</a></span>
             </label>
         </div>
-        <button class="btn-grey w-full mt-10">Зарегистрироваться</button>
+        <button class="btn-gray w-full mt-10">Зарегистрироваться</button>
         <a class="a-green text-center block mt-5 hover:underline" href="{{ route('login') }}">У вас уже есть аккаунт?</a>
     </form>
 </x-guest-layout>
