@@ -9,14 +9,42 @@
                     <a class="{{ request()->routeIs('rates') ? 'text-green' : 'text-gray' }} mr-5 hover:text-green-600" href="{{ route('rates') }}">Тарифы</a>
                     <a class="{{ request()->routeIs('articles') ? 'text-green' : 'text-gray' }} mr-5 hover:text-green-600" href="{{ route('articles') }}">Статьи</a>
                     <a class="{{ request()->routeIs('cases') ? 'text-green' : 'text-gray' }} hover:text-green-600" href="{{ route('cases') }}">Кейсы</a>
+                    @hasrole('Admin')
+                        <a class="{{ request()->routeIs('applications.index') ? 'text-admin-selected' : 'text-admin' }} hover:text-purple-600 ms-20" href="{{ route('applications.index') }}">Заявки</a>
+                    @endhasrole
                 </nav>
             </div>
             <div class="flex items-center hidden-1024">
-                <div class="text-right mr-5">
-                    <div class="text-[20px] font-semibold">+7(423) 124 311 213</div>
-                    <a class="text-[14px] font-semibold a-green" href="#" onclick="openModal()">Заказать звонок</a>
-                </div>
-                <button class="btn-green w-52">Войти</button>
+
+
+                @auth
+                    <div class="hidden-768">
+                        <x-dropdown>
+                            <x-slot name="trigger">
+                                <button class="text-[14px] flex items-center font-medium text-gray hover:text-gray-700">
+                                    <div>{{ Auth::user()->name }}</div>
+                                    <svg class="fill-current h-4 w-4 ms-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </x-slot>
+                            <x-slot name="content">
+                                <x-dropdown-link :href="route('profile.edit')">Профиль</x-dropdown-link>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <x-dropdown-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">Выйти</x-dropdown-link>
+                                </form>
+                            </x-slot>
+                        </x-dropdown>
+                    </div>
+                @else
+                    <div class="text-right mr-5">
+                        <div class="text-[20px] font-semibold">+7(423) 124 311 213</div>
+                        <a class="text-[14px] font-semibold a-green" href="#" onclick="openModal()">Заказать звонок</a>
+                    </div>
+                    <button class="btn-green w-52" onclick="location='{{ route('login') }}'">Войти</button>
+                @endauth
+
             </div>
             <div class="modal-bg" onclick="closeModal()">
                 <div class="modal" onclick="event.stopPropagation();">
@@ -46,25 +74,6 @@
                 const openModal = () => modal.style.display = "block";
                 const closeModal = () => modal.style.display = "none";
             </script>
-            {{-- <div class="hidden-768">
-                <x-dropdown>
-                    <x-slot name="trigger">
-                        <button class="text-[14px] flex items-center font-medium text-gray hover:text-gray-700">
-                            <div>{{ Auth::user()->name }}</div>
-                            <svg class="fill-current h-4 w-4 ms-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
-                        </button>
-                    </x-slot>
-                    <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">Профиль</x-dropdown-link>
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <x-dropdown-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">Выйти</x-dropdown-link>
-                        </form>
-                    </x-slot>
-                </x-dropdown>
-            </div> --}}
             <div class="hidden block-1024">
                 <button @click="open = ! open" class="py-2">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">

@@ -143,6 +143,12 @@
 .text-gray {
     color: #ADADAD;
 }
+.text-admin {
+    color: #d579ea;
+}
+.text-admin-selected {
+    color: #7a358a;
+}
 .bg-green {
     background-color: #00963F;
 }

@@ -37,7 +37,7 @@ class NewUserRegistered extends Notification
     public function toTelegram(object $notifiable)
     {
         return TelegramMessage::create()
-            ->content("Hello there!\n")
+            ->content("ВНИМАНИЕ!\n")
             ->line("Зарегистрирован новый юзер - " . $this->userName);
     }
 
