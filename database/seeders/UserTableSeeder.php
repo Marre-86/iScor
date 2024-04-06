@@ -17,12 +17,12 @@ class UserTableSeeder extends Seeder
         User::truncate();
 
         User::create([
-            'name' => 'Robb Jones',
-            'email' => 'a@a',
-            'password' => Hash::make(env('ADMIN_DB_PASSWORD')),
+            'name' => env('ADMIN_NAME'),
+            'email' => env('ADMIN_EMAIL'),
+            'password' => Hash::make(env('ADMIN_PASSWORD')),
         ]);
 
-        $user = User::where('name', 'Robb Jones')->first();
+        $user = User::where('name', env('ADMIN_NAME'))->first();
         $user->assignRole('Admin');
     }
 }

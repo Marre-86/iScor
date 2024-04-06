@@ -16,12 +16,11 @@
     </head>
     <body>
         <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+            @include('layouts.header')
             <main>
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
-                    @yield('content')
-                </div>
+                {{ $slot }}
             </main>
+            @include('layouts.footer')
         </div>
     </body>
 </html>
