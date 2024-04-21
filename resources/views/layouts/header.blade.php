@@ -2,9 +2,8 @@
     <div class="container-iscor">
         <div class="flex items-center justify-between py-5">
             <div class="flex items-center">
-                <img class="logo cursor-pointer" src="img/logo.svg" onclick="location='{{ route('home') }}'">
+                <img class="logo cursor-pointer" src="/img/logo.svg" onclick="location='{{ route('home') }}'">
                 <nav class="text-[14px] font-medium ml-20 hidden-1024">
-                    <a class="{{ request()->routeIs('home') ? 'text-green' : 'text-gray' }} mr-5 hover:text-green-600" href="{{ route('home') }}">Главная</a>
                     <a class="{{ request()->routeIs('services') ? 'text-green' : 'text-gray' }} mr-5 hover:text-green-600" href="{{ route('services') }}">Услуги</a>
                     <a class="{{ request()->routeIs('rates') ? 'text-green' : 'text-gray' }} mr-5 hover:text-green-600" href="{{ route('rates') }}">Тарифы</a>
                     <a class="{{ request()->routeIs('articles') ? 'text-green' : 'text-gray' }} mr-5 hover:text-green-600" href="{{ route('articles') }}">Статьи</a>

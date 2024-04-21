@@ -7,16 +7,15 @@
         </div>
         <div class="w-45 w-full-768">
             <nav class="text-[14px] flex justify-between">
-                <a href="{{ route('login') }}">Главная</a>
                 <a href="{{ route('services') }}">Услуги</a>
                 <a href="{{ route('rates') }}">Тарифы</a>
                 <a href="{{ route('articles') }}">Статьи</a>
                 <a href="{{ route('cases') }}">Кейсы</a>
             </nav>
             <div class="flex mt-5">
-                <img class="me-10" src="img/logo-facebook.svg" alt="logo-facebook">
-                <img class="me-10" src="img/logo-twitter.svg" alt="logo-twitter">
-                <img src="img/logo-instagram.svg" alt="logo-instagram">
+                <img class="me-10" src="/img/logo-facebook.svg" alt="logo-facebook">
+                <img class="me-10" src="/img/logo-twitter.svg" alt="logo-twitter">
+                <img src="/img/logo-instagram.svg" alt="logo-instagram">
             </div>
         </div>
         <div class="w-45 hidden-768">

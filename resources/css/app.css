@@ -45,8 +45,12 @@
     border: 1px solid #CCCCCC;
     border-radius: 32px;
     padding: 32px;
-    width: 32.5%;
-    min-height: 250px;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+.card-services:hover {
+    border-color: #2e9c34;
 }
 .card-home-cases,
 .card-home-rates,

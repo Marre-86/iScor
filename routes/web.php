@@ -10,6 +10,18 @@ Route::get('/', function () {
 Route::get('/services', function () {
     return view('services');
 })->name('services');
+Route::get('/services/credit-rating-physical-person', function () {
+    return view('services.credit-rating-physical-person');
+})->name('credit-rating-physical-person');
+Route::get('/services/credit-rating-legal-entity', function () {
+    return view('services.credit-rating-legal-entity');
+})->name('credit-rating-legal-entity');
+Route::get('/services/scoring', function () {
+    return view('services.scoring');
+})->name('scoring');
+Route::get('/services/api-integration', function () {
+    return view('services.api-integration');
+})->name('api-integration');
 Route::get('/rates', function () {
     return view('rates');
 })->name('rates');
