@@ -1,36 +1,26 @@
 <x-app-layout>
     <div class="container-iscor pt-10 pb-20">
-        <div class="text-[32px] fs-20-768 font-medium">Услуги <span class="text-green">IScor.ru</span></div>
+        <div class="text-[32px] fs-20-768 font-medium">Услуги <span class="text-green">iScor.ru</span></div>
         <div class="flex flex-wrap justify-between mt-3">
-            <div class="card-services mt-3">
-                <img class="w-32px-768" src="img/services-1.svg" alt="">
-                <div class="text-[24px] fs-16-768 font-semibold mt-3">КОМПЛЕКСНЫЙ ОТЧЕТ</div>
-                <div class="fs-14-768 mt-3">Максимальный набор источников. Задолженности и правовые риски.</div>
+            <div class="card-services cursor-pointer mt-3" onclick="location='{{ route('credit-rating-physical-person') }}'">
+                <img class="w-12 h-12" src="img/services-1.svg" alt="">
+                <div class="text-2xl font-semibold mt-3">КРЕДИТНЫЙ РЕЙТИНГ ФИЗ.ЛИЦО</div>
+                <div class="text-sm mt-3">Основные показатели кредитной истории. Для запроса необходимо Ф.И.О. серия, номер паспорта</div>
             </div>
-            <div class="card-services mt-3">
-                <img class="w-32px-768" src="img/services-2.svg" alt="">
-                <div class="text-[24px] fs-16-768 font-semibold mt-3">КРЕДИТНЫЙ ОТЧЕТ</div>
-                <div class="fs-14-768 mt-3">Полная информация о крединой истории. Оценка рисков.</div>
+            <div class="card-services cursor-pointer mt-3" onclick="location='{{ route('credit-rating-legal-entity') }}'">
+                <img class="w-12 h-12" src="img/services-2.svg" alt="">
+                <div class="text-2xl font-semibold mt-3">КРЕДИТНЫЙ РЕЙТИНГ ЮР.ЛИЦО</div>
+                <div class="text-sm mt-3">Основные показатели кредитной истории. Для запроса необходим ИНН</div>
             </div>
-            <div class="card-services mt-3">
-                <img class="w-32px-768" src="img/services-3.svg" alt="">
-                <div class="text-[24px] fs-16-768 font-semibold mt-3">КРЕДИТНЫЙ РЕЙТИНГ</div>
-                <div class="fs-14-768 mt-3">Краткая кредитная история. Платежная дисциплина.</div>
+            <div class="card-services cursor-pointer mt-3" onclick="location='{{ route('scoring') }}'">
+                <img class="w-12 h-12" src="img/services-3.svg" alt="">
+                <div class="text-2xl font-semibold mt-3">СКОРИНГОВЫЙ БАЛЛ</div>
+                <div class="text-sm mt-3">Оценка кредиспособности и платежной дисциплины. Упрощенный сбор данных для запроса. Ф.И.О. и дата рождения.</div>
             </div>
-            <div class="card-services mt-3">
-                <img class="w-32px-768" src="img/services-4.svg" alt="">
-                <div class="text-[24px] fs-16-768 font-semibold mt-3">СКОРИНГОВЫЙ БАЛЛ</div>
-                <div class="fs-14-768 mt-3">Числовая оценка кредитоспособности. Прогноз исполнения обязательств.</div>
-            </div>
-            <div class="card-services mt-3">
-                <img class="w-32px-768" src="img/services-5.svg" alt="">
-                <div class="text-[24px] fs-16-768 font-semibold mt-3">МОНИТОРИНГ ФИНАНСОВОГО СОСТОЯНИЯ</div>
-                <div class="fs-14-768 mt-3">Отслеживание финансового состояния в реальном времени.</div>
-            </div>
-            <div class="card-services mt-3">
-                <img class="w-32px-768" src="img/services-6.svg" alt="">
-                <div class="text-[24px] fs-16-768 font-semibold mt-3">КРЕДИТНЫЙ РЕЙТИНГ</div>
-                <div class="fs-14-768 mt-3">Краткая кредитная история. Платежная дисциплина.</div>
+            <div class="card-services cursor-pointer mt-3" onclick="location='{{ route('api-integration') }}'">
+                <img class="w-12 h-12" src="img/services-5.svg" alt="">
+                <div class="text-2xl font-semibold mt-3">API ИНТЕГРАЦИЯ</div>
+                <div class="text-sm mt-3">Внедрение проверки кредитной истории непосредственно в вашу систему, с фокусированием на особо важных аспектах.</div>
             </div>
         </div>
     </div>
