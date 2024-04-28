@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="mt-10 flex justify-center">
-                    <button class="btn-white w-2/3">Заключить договор</button>
+                    <button class="btn-white w-2/3" onclick="location='{{ route('register') }}'">Заключить договор</button>
                 </div>
             </div>
             <div class="w-1/2 flex flex-col justify-between">

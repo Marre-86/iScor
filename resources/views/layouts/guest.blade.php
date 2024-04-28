@@ -18,7 +18,7 @@
         <div class="min-h-screen flex flex-col bg-gray-100">
             <header class="bg-white py-5">
                 <div class="container-iscor flex items-center justify-between">
-                    <img class="logo" src="img/logo.svg">
+                    <img class="logo cursor-pointer" src="/img/logo.svg" onclick="location='{{ route('home') }}'">
                     <div class="text-[24px] fs-14-768 font-semibold">Автоматизированная система скоринга</div>
                 </div>
             </header>
