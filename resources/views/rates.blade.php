@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="container-iscor pt-10 pb-20">
+    <div class="container-iscor-2 pt-10 pb-20">
         <div class="text-[32px] fs-18-768 font-medium font-semibold-768">Тарифы</div>
         <div class="flex flex-wrap justify-between mt-3">
             <div class="card-rates mt-3">

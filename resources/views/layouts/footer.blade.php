@@ -1,5 +1,5 @@
 <div class="bg-gray py-5 sm:py-10">
-    <div class="container-iscor flex block-768 justify-between">
+    <div class="container-iscor-2 flex block-768 justify-between">
         <div class="hidden block-768 mb-5">
             <div class="font-semibold">Получите полный доступ</div>
             <div class="text-[14px] mt-3">Для получения полного доступа к платформе необходимо пройти регистрация. Оставьте заявку и наш менеджер свяжется с вами.</div>

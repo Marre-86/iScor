@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="container-iscor pt-10 pb-20">
+    <div class="container-iscor-2 pt-10 pb-20">
         <div class="text-[32px] fs-20-768 font-medium">Услуги <span class="text-green">iScor.ru</span></div>
         <div class="flex flex-wrap justify-between mt-3">
             <div class="card-services cursor-pointer mt-3" onclick="location='{{ route('credit-rating-physical-person') }}'">

@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="container-iscor">
+    <div class="container-iscor-2">
         <h2 class="text-2xl font-semibold text-gray-900 mt-12">Заявки</h2>
         <div class="bg-white overflow-hidden shadow sm:rounded-lg mt-6 mb-96">
             <div class="px-4 py-5 sm:px-6">

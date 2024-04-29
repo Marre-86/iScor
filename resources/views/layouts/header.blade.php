@@ -1,5 +1,5 @@
-<div x-data="{ open: false }" class="bg-white">
-    <div class="container-iscor">
+<div x-data="{ open: false }" class="bg-white border-bottom-gray">
+    <div class="container-iscor-2">
         <div class="flex items-center justify-between py-5">
             <div class="flex items-center">
                 <img class="logo cursor-pointer" src="/img/logo.svg" onclick="location='{{ route('home') }}'">
@@ -14,8 +14,6 @@
                 </nav>
             </div>
             <div class="flex items-center hidden-1024">
-
-
                 @auth
                     <div class="hidden-768">
                         <x-dropdown>
